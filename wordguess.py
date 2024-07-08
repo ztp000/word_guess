@@ -38,6 +38,7 @@ def game():
     def check_the_guess(letter):
         if letter not in guessed_letters and isinstance(letter, str) and len(letter) == 1 and letter in random_word:
             guessed_letters.append(letter)
+            print("Correct.")
             return True
         elif letter not in random_word:
             print("Wrong.")
@@ -55,24 +56,24 @@ def game():
     guessed_letters = []
 
     while sorted("".join(guessed_letters)) != sorted(strip_random_word(random_word)):
-        debug()
-        print("------")
+        print("\n")
         display(random_word)
-        print("------")
+        print("\n")
         print(f"You have {lives} guess left.")
         guess = input("Your Guess: ").lower()
-        check_the_guess(guess)
         if check_the_guess(guess) == False:
             lives -= 1
         if lives < 1:
             break
+    
     guessed_letters.clear()
 
     if lives > 0:
-        print("You Win")
+        print("\n You Win!")
     if lives < 1:
-        print("You Lost")
-
+        print("\n You Lost!")    
+    print("- The word is {} -".format(random_word))
+    print("Change")
 while True:
     game()
     input("New Game?")
