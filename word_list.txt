@@ -1,0 +1,12 @@
+sun
+moon
+flower
+red
+bicycle
+school
+book
+hat
+bus
+car
+house
+window
